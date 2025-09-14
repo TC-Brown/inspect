@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspection Scorecard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div id="inspectionApp" class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="header text-center mb-8">
+            <h1 class="title text-3xl sm:text-4xl font-bold text-blue-600">
+                Inspection Scorecard
+            </h1>
+            <p class="desc text-gray-600 mt-2">
+                Your tool for maintaining facility compliance and safety.
+            </p>
+        </header>
+
+        <!-- General Information Section -->
+        <section class="details bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="details-title text-2xl font-semibold text-gray-700 border-b pb-3 mb-4">
+                Inspection Details
+            </h2>
+            <div class="fields grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <label for="inspectorName" class="block text-sm font-medium text-gray-700">Inspector Name</label>
+                    <input type="text" id="inspectorName" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-10 px-3">
+                </div>
+                <div>
+                    <label for="inspectionDate" class="block text-sm font-medium text-gray-700">Date of Inspection</label>
+                    <input type="date" id="inspectionDate" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-10 px-3">
+                </div>
+                <div>
+                    <label for="officeLocation" class="block text-sm font-medium text-gray-700">Office/Clinic Location</label>
+                    <input type="text" id="officeLocation" class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-10 px-3">
+                </div>
+            </div>
+        </section>
+
+        <!-- Scoring Sections (populated by JS) -->
+    <section id="scoringSections" class="scoring">
+            <!-- Sections will be dynamically generated here by JavaScript -->
+        </section>
+
+        <!-- Overall Score & Actions -->
+        <section class="results bg-white p-6 rounded-xl shadow-md mt-8">
+            <h2 class="results-title text-2xl font-semibold text-gray-700 border-b pb-3 mb-4">
+                Results & Actions
+            </h2>
+            <div class="summary flex flex-col md:flex-row justify-between items-center bg-blue-50 p-6 rounded-lg">
+                <div class="score text-center md:text-left mb-4 md:mb-0">
+                    <p class="score-label text-lg font-medium text-gray-600">Overall Score</p>
+                    <div id="totalScore" class="score-value text-4xl font-bold text-blue-600">0 / 0</div>
+                </div>
+                <div id="overallRating" class="rating-value text-2xl font-semibold p-3 rounded-md text-center">
+                    -
+                </div>
+            </div>
+            <div class="actions mt-6 flex flex-wrap justify-center md:justify-end gap-3 no-print">
+                <button id="calculateScoreBtn" class="btn-calc bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-300 shadow-sm">
+                    Calculate Score
+                </button>
+                <button id="saveBtn" class="btn-save bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300 shadow-sm">
+                    Save & Print
+                </button>
+                <button id="resetBtn" class="btn-reset bg-red-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-600 transition duration-300 shadow-sm">
+                    Reset Form
+                </button>
+            </div>
+        </section>
+
+        <!-- Printable Report Area -->
+    <section id="printSection" class="print"></section>
+    </div>
+    <script src="../static/js/inspection.js"></script>
+</body>
+</html>
