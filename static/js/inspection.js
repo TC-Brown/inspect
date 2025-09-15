@@ -131,18 +131,18 @@ document.addEventListener('DOMContentLoaded', function() {
         
         ratingDiv.classList.remove('bg-green-100', 'text-green-800', 'bg-yellow-100', 'text-yellow-800', 'bg-red-100', 'text-red-800');
 
-            if (percentage >= 90) {
+        if (percentage >= 90) {
             ratingDiv.textContent = 'Excellent';
             ratingDiv.classList.add('bg-green-100', 'text-green-800');
-            } 
-            else if (percentage >= 70) {
+        } 
+        else if (percentage >= 70) {
             ratingDiv.textContent = 'Good';
             ratingDiv.classList.add('bg-yellow-100', 'text-yellow-800');
-            } 
-            else {
+        } 
+        else {
             ratingDiv.textContent = 'Needs Improvement';
             ratingDiv.classList.add('bg-red-100', 'text-red-800');
-            }
+        }
     }
     
     function resetForm() {
