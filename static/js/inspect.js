@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                      <div class="comments-scoring mt-4">
                         <label for="comments-${area.id}" class="label-comments-scoring block text-sm font-medium text-gray-700">Comments</label>
-                        <textarea id="comments-${area.id}" rows="2" class="textarea-comments-scoring mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
+                        <textarea id="comments-${area.id}" rows="2" class="textarea-comments-scoring mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
                     </div>
                 </div>
             `;
@@ -109,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-    document.getElementById('calculateScoreBtn').addEventListener('click', calculateScore);
-    document.getElementById('resetBtn').addEventListener('click', resetForm);
-    document.getElementById('saveBtn').addEventListener('click', saveAndPrint);
+        document.getElementById('calculateScoreBtn').addEventListener('click', calculateScore);
+        document.getElementById('resetBtn').addEventListener('click', resetForm);
+        document.getElementById('saveBtn').addEventListener('click', saveAndPrint);
     }
 
     // --- FUNCTIONS ---
@@ -121,9 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxPossibleScore = areas.reduce((acc, area) => acc + area.items.length * 5, 0);
 
         ratingInputs.forEach(input => {
-    const value = parseInt(input.value, 10);
-    totalScore += isNaN(value) ? 0 : value;
-});
+            const value = parseInt(input.value, 10);
+            totalScore += isNaN(value) ? 0 : value;
+        });
 
         document.getElementById('totalScore').textContent = `${totalScore} / ${maxPossibleScore}`;
         
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const allStars = document.querySelectorAll('.star');
         allStars.forEach(star => star.classList.remove('selected'));
 
-        document.getElementById('totalScore').textContent = '0 / 0';
+        document.getElementById('totalScore').textContent = '0 / 20'; // always show correct denominator
         const ratingDiv = document.getElementById('overallRating');
         ratingDiv.textContent = '-';
         ratingDiv.classList.remove('bg-green-100', 'text-green-800', 'bg-yellow-100', 'text-yellow-800', 'bg-red-100', 'text-red-800');
@@ -195,7 +195,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const areaContainer = document.querySelector(`[data-area-id="${area.id}"]`);
             area.items.forEach((item, index) => {
-                const ratingValue = areaContainer.querySelector(`[data-item-index="${index}"]`).nextElementSibling.value;
+                const ratingInput = areaContainer.querySelector(`[data-item-index="${index}"]`).nextElementSibling;
+                let ratingValue = parseInt(ratingInput.value, 10);
+                ratingValue = isNaN(ratingValue) ? 0 : ratingValue;
                 reportHTML += `
                     <div class="flex justify-between items-center py-1 border-b">
                         <span>${item}</span>
@@ -211,12 +213,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         reportHTML += `</div>`;
-        
-    const printSection = document.getElementById('printSection');
-    printSection.innerHTML = reportHTML;
-    printSection.style.display = 'block';
-    window.print();
-    printSection.style.display = 'none';
+
+        const printSection = document.getElementById('printSection');
+        if (!printSection) {
+            // Create one if missing
+            const div = document.createElement('div');
+            div.id = 'printSection';
+            div.style.display = 'none';
+            document.body.appendChild(div);
+        }
+
+        // Fill and display
+        const printSectionDiv = document.getElementById('printSection');
+        printSectionDiv.innerHTML = reportHTML;
+        printSectionDiv.style.display = 'block';
+
+        // Print only the printSection
+        const css = `
+        <style>
+        @media print {
+          body * { visibility: hidden !important; }
+          #printSection, #printSection * { visibility: visible !important; }
+          #printSection { position: absolute; left: 0; top: 0; width: 100vw; }
+        }
+        </style>`;
+        printSectionDiv.insertAdjacentHTML('afterbegin', css);
+
+        window.print();
+
+        setTimeout(() => {
+            printSectionDiv.style.display = 'none';
+            printSectionDiv.innerHTML = '';
+        }, 1000); // give print dialog time
     }
 
     // --- INITIALIZATION ---
