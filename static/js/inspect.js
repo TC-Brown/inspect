@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Furniture and upholstery clean and in good repair",
                 "Magazines and reading materials neat",
                 "Reception desk and counter sanitized",
-                "Entrance glass clean and smudge-free",
-                "other"
+                "Entrance glass clean and smudge-free"
             ]
         },
         {
