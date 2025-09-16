@@ -121,8 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxPossibleScore = areas.reduce((acc, area) => acc + area.items.length * 5, 0);
 
         ratingInputs.forEach(input => {
-            totalScore += parseInt(input.value, 10);
-        });
+    const value = parseInt(input.value, 10);
+    totalScore += isNaN(value) ? 0 : value;
+});
 
         document.getElementById('totalScore').textContent = `${totalScore} / ${maxPossibleScore}`;
         
