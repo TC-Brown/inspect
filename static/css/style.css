@@ -1,5 +1,6 @@
 body {
     font-family: 'Inter', sans-serif;
+    background-color: darkgreen;
 }
 .container-inspection {
     max-width: 1200px;
