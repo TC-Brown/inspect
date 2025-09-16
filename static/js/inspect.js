@@ -1,4 +1,4 @@
-alert("This page is under testing, contact the administator for any issues")
+alert("This page is under testing, contact the site developer if any issues with this application occurs")
 document.addEventListener('DOMContentLoaded', function() {
     // --- DATA ---
     const areas = [
