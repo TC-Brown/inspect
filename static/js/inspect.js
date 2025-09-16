@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else {
             ratingDiv.textContent = 'Needs Improvement';
             ratingDiv.classList.add('bg-red-100', 'text-red-800');
-        }
+        };
     }
     
     function resetForm() {
