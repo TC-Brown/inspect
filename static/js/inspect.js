@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Furniture and upholstery clean and in good repair",
                 "Magazines and reading materials neat",
                 "Reception desk and counter sanitized",
-                "Entrance glass clean and smudge-free"
+                "Entrance glass and partitions clean and smudge-free",
+                "Monitors dusted and screen wiped"
             ]
         },
         {
@@ -20,8 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Exam table sanitized and freshly papered",
                 "Countertops and sinks disinfected",
                 "Floors and baseboards clean",
-                "Waste receptacles emptied and liners replaced",
-                "Medical instruments properly sterilized/stored"
+                "Waste receptacles emptied and liners replaced"
             ]
         },
         {
@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Sinks, counters, and mirrors clean",
                 "Floors clean and dry",
                 "Soap dispensers and paper towels restocked",
-                "Trash emptied and liners replaced"
+                "Trash emptied and liners replaced",
+                "Partitions cleaned/polished",
+                "Vents dusted"
             ]
         },
         {
@@ -43,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Tables and chairs wiped down",
                 "Countertops and sinks clean",
                 "Appliances (microwave, fridge) clean",
-                "General tidiness and organization"
+                "General tidiness and organization",
+                "Dispensers cleaned and filled(soap, paper, feminine)"
             ]
         }
     ];
