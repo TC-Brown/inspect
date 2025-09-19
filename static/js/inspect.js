@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Shelves are clean and organized",
                 "Sufficient supply of clean launderables"
             ]
-        }
+        },
     
     ];
 
