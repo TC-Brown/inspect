@@ -49,20 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Dispensers cleaned and filled(soap, paper, feminine)"
             ]
         },
-        {
-            title: "Other",
-            id: "other",
-            itemes: [
-                "Chemicals and supplies are organized",
-                "All supplies are available",
-                "Mop sink clean and free of debris",
-                "Equipment is in good repair",
-                "Vacuum has been emptied",
-                "Shelves are clean and organized",
-                "Sufficient supply of clean launderables"
-            ]
-        },
-    
     ];
 
     // --- RENDER AREAS ---
